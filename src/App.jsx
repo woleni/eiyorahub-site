@@ -229,7 +229,8 @@ export default function App() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap');
 
-        .site { background:${colors.bg}; color:${colors.text}; font-family:${isAm ? "'Noto Sans Ethiopic','Inter'" : "'Inter'"},sans-serif; min-height:100%; line-height:1.7; }
+        .site { --bg:${colors.bg}; --surface:${colors.surface}; --text:${colors.text}; --muted:${colors.muted}; --line:${colors.line}; background:${colors.bg}; color:${colors.text}; font-family:${isAm ? "'Noto Sans Ethiopic','Inter'" : "'Inter'"},sans-serif; min-height:100%; line-height:1.7; }
+        .light-section { --bg:${colors.text}; --surface:#E7E0D1; --text:${colors.bg}; --muted:#6B6455; --line:rgba(15,14,12,0.14); }
         .site * { box-sizing:border-box; }
         html { scroll-behavior:smooth; }
         .wrap { max-width:1040px; margin:0 auto; padding:0 32px; }
@@ -273,55 +274,55 @@ export default function App() {
         .btn-primary { color:${colors.text}; }
         .btn-outline { color:${colors.muted}; }
 
-        section { padding:88px 0; border-top:1px solid ${colors.line}; }
+        section { padding:88px 0; border-top:1px solid var(--line); background:var(--bg); color:var(--text); transition:background .2s, color .2s; }
         .section-head { margin-bottom:56px; display:flex; align-items:baseline; gap:24px; }
-        .section-num { font-family:'Fraunces',serif; font-style:italic; color:${colors.muted}; font-size:15px; }
+        .section-num { font-family:'Fraunces',serif; font-style:italic; color:var(--muted); font-size:15px; }
         .section-head h2 { font-size:34px; margin:0 0 12px; font-weight:500; }
-        .section-head p { color:${colors.muted}; font-size:15px; max-width:56ch; margin:0; }
+        .section-head p { color:var(--muted); font-size:15px; max-width:56ch; margin:0; }
 
-        .about p.lead { font-size:24px; font-family:${isAm ? "'Noto Sans Ethiopic','Fraunces'" : "'Fraunces'"},serif; font-weight:400; font-style:italic; max-width:68ch; margin:0 0 28px; line-height:1.5; color:${colors.text}; }
-        .about p.sub { color:${colors.muted}; max-width:58ch; font-size:15px; }
+        .about p.lead { font-size:24px; font-family:${isAm ? "'Noto Sans Ethiopic','Fraunces'" : "'Fraunces'"},serif; font-weight:400; font-style:italic; max-width:68ch; margin:0 0 28px; line-height:1.5; color:var(--text); }
+        .about p.sub { color:var(--muted); max-width:58ch; font-size:15px; }
 
-        .cat-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:${colors.line}; border:1px solid ${colors.line}; }
-        .cat-card { background:${colors.bg}; padding:40px; }
+        .cat-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+        .cat-card { background:var(--bg); padding:40px; }
         .cat-card .tag { font-family:'Fraunces',serif; font-style:italic; font-size:14px; color:${colors.blue}; display:block; margin-bottom:20px; }
         .cat-card.media .tag { color:${colors.red}; }
         .cat-card h3 { font-size:24px; margin:0 0 10px; font-weight:500; }
-        .cat-card .blurb { color:${colors.muted}; font-size:14px; margin:0 0 28px; }
-        .service-item { padding:18px 0; border-top:1px solid ${colors.line}; }
+        .cat-card .blurb { color:var(--muted); font-size:14px; margin:0 0 28px; }
+        .service-item { padding:18px 0; border-top:1px solid var(--line); }
         .service-item:first-of-type { border-top:none; }
         .service-item h4 { margin:0 0 6px; font-size:15.5px; font-weight:600; }
-        .service-item p { margin:0; color:${colors.muted}; font-size:13.5px; }
+        .service-item p { margin:0; color:var(--muted); font-size:13.5px; }
 
-        .work-sub { font-family:'Fraunces',serif; font-style:italic; font-size:15px; color:${colors.muted}; margin:0 0 22px; }
-        .media-scroll { display:flex; gap:1px; overflow-x:auto; background:${colors.line}; border:1px solid ${colors.line}; margin-bottom:64px; }
+        .work-sub { font-family:'Fraunces',serif; font-style:italic; font-size:15px; color:var(--muted); margin:0 0 22px; }
+        .media-scroll { display:flex; gap:1px; overflow-x:auto; background:var(--line); border:1px solid var(--line); margin-bottom:64px; }
         .media-scroll::-webkit-scrollbar { height:6px; }
-        .media-scroll::-webkit-scrollbar-track { background:${colors.bg}; }
-        .media-scroll::-webkit-scrollbar-thumb { background:${colors.line}; }
-        .media-card { flex:0 0 240px; background:${colors.bg}; }
+        .media-scroll::-webkit-scrollbar-track { background:var(--bg); }
+        .media-scroll::-webkit-scrollbar-thumb { background:var(--line); }
+        .media-card { flex:0 0 240px; background:var(--bg); }
         .media-card img { width:100%; height:170px; object-fit:cover; display:block; filter:grayscale(15%); }
         .media-card .cap { padding:16px; }
         .media-card .cap h4 { margin:0 0 4px; font-size:13.5px; font-weight:600; }
-        .media-card .cap span { font-size:11px; color:${colors.muted}; font-style:italic; font-family:'Fraunces',serif; }
+        .media-card .cap span { font-size:11px; color:var(--muted); font-style:italic; font-family:'Fraunces',serif; }
 
-        .digital-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:${colors.line}; border:1px solid ${colors.line}; }
-        .digital-card { background:${colors.bg}; padding:28px 32px; display:flex; align-items:center; justify-content:space-between; text-decoration:none; color:${colors.text}; transition:background .2s; }
-        .digital-card:hover { background:${colors.surface}; }
+        .digital-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+        .digital-card { background:var(--bg); padding:28px 32px; display:flex; align-items:center; justify-content:space-between; text-decoration:none; color:var(--text); transition:background .2s; }
+        .digital-card:hover { background:var(--surface); }
         .digital-card h4 { margin:0 0 4px; font-size:16px; font-weight:500; }
-        .digital-card span { font-size:12px; color:${colors.muted}; font-style:italic; font-family:'Fraunces',serif; }
-        .digital-card svg { color:${colors.muted}; flex-shrink:0; }
+        .digital-card span { font-size:12px; color:var(--muted); font-style:italic; font-family:'Fraunces',serif; }
+        .digital-card svg { color:var(--muted); flex-shrink:0; }
 
-        .soon-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:${colors.line}; border:1px solid ${colors.line}; }
-        .soon-card { background:${colors.bg}; padding:32px; }
+        .soon-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+        .soon-card { background:var(--bg); padding:32px; }
         .soon-badge { font-family:'Fraunces',serif; font-style:italic; font-size:13px; color:${colors.red}; display:block; margin-bottom:14px; }
         .soon-card h4 { margin:0 0 10px; font-size:17px; font-weight:500; }
-        .soon-card p { margin:0; color:${colors.muted}; font-size:13.5px; }
+        .soon-card p { margin:0; color:var(--muted); font-size:13.5px; }
 
-        .team-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:${colors.line}; border:1px solid ${colors.line}; }
-        .team-card { background:${colors.bg}; padding:32px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-        .team-card .role { font-family:'Fraunces',serif; font-style:italic; font-size:13px; color:${colors.muted}; margin:0 0 8px; }
+        .team-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+        .team-card { background:var(--bg); padding:32px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+        .team-card .role { font-family:'Fraunces',serif; font-style:italic; font-size:13px; color:var(--muted); margin:0 0 8px; }
         .team-card h4 { margin:0; font-size:18px; font-weight:500; }
-        .team-card a { display:flex; align-items:center; gap:8px; color:${colors.text}; text-decoration:none; border-bottom:1px solid currentColor; font-size:13px; padding-bottom:2px; }
+        .team-card a { display:flex; align-items:center; gap:8px; color:var(--text); text-decoration:none; border-bottom:1px solid currentColor; font-size:13px; padding-bottom:2px; }
         .team-card a:hover { opacity:0.7; }
 
         footer { padding:40px 0; border-top:1px solid ${colors.line}; display:flex; flex-direction:column; gap:20px; }
@@ -387,7 +388,7 @@ export default function App() {
         </div>
       </header>
 
-      <section id="about">
+      <section id="about" className="light-section">
         <div className="wrap about">
           <div className="section-head">
             <span className="section-num">01</span>
@@ -425,7 +426,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="work">
+      <section id="work" className="light-section">
         <div className="wrap">
           <div className="section-head">
             <span className="section-num">03</span>
@@ -481,7 +482,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="team">
+      <section id="team" className="light-section">
         <div className="wrap">
           <div className="section-head">
             <span className="section-num">05</span>
