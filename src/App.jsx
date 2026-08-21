@@ -122,8 +122,8 @@ const siteData = {
     { name: { en: "Creator Partnerships", am: "ከፈጣሪዎች ጋር አጋርነት" }, desc: { en: "Connecting brands with the right voices for campaigns and launches.", am: "ብራንዶችን ለዘመቻዎችና ማስጀመሪያዎች ትክክለኛ ድምጾች ጋር እናገናኛለን።" } },
   ],
   team: [
-    { role: { en: "Manager", am: "ስራ አስኪያጅ" }, handle: "@kal_eiyorahub", url: "https://t.me/kal_eiyorahub" },
-    { role: { en: "Secretary", am: "ጸሐፊ" }, handle: "@lidu_eiyorahub", url: "https://t.me/lidu_eiyorahub" },
+    { role: { en: "Manager", am: "ስራ አስኪያጅ" }, handle: "Mr. Tesfaye", url: "https://t.me/Kaldan_444" },
+    { role: { en: "Secretary", am: "ጸሐፊ" }, handle: "Miss Lidya", url: "https://t.me/yane_leyu23" },
   ],
 };
 
